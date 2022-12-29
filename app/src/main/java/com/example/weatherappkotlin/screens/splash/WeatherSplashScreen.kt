@@ -34,6 +34,8 @@ fun WeatherSplashScreen(navController: NavController) {
         Animatable(0f)
     }
 
+    val defaultCity = "San Diego"
+
     LaunchedEffect(key1 = true, block = {
         scale.animateTo(targetValue = 0.6f, animationSpec = tween(durationMillis = 900, easing = {
             OvershootInterpolator(8f).getInterpolation(it)
@@ -41,7 +43,7 @@ fun WeatherSplashScreen(navController: NavController) {
 
         delay(2000L)
 
-        navController.navigate(route = WeatherScreens.MainScreen.name)
+        navController.navigate(route = WeatherScreens.MainScreen.name + "/$defaultCity")
     })
 
     Surface(
